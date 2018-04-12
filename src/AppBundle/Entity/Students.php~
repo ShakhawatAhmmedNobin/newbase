@@ -1,0 +1,531 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Students
+ *
+ * @ORM\Table(name="students", indexes={@ORM\Index(name="vorname", columns={"nachname"}), @ORM\Index(name="nachname", columns={"vorname"})})
+ * @ORM\Entity
+ */
+class Students
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nachname", type="string", length=150, nullable=false)
+     */
+    private $nachname = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="vorname", type="string", length=150, nullable=false)
+     */
+    private $vorname = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gender", type="string", nullable=false)
+     */
+    private $gender = 'male';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="university1", type="string", length=10, nullable=false)
+     */
+    private $university1 = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matrikel1", type="string", length=20, nullable=false)
+     */
+    private $matrikel1 = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="university2", type="string", length=10, nullable=false)
+     */
+    private $university2 = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="matrikel2", type="string", length=20, nullable=false)
+     */
+    private $matrikel2 = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="start_semester", type="string", length=6, nullable=false)
+     */
+    private $startSemester = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="study_semester", type="string", nullable=false)
+     */
+    private $studySemester = 'not set';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birth_date", type="date", nullable=false)
+     */
+    private $birthDate = '0000-00-00';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="birth_place", type="string", length=100, nullable=false)
+     */
+    private $birthPlace = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationality", type="string", length=100, nullable=false)
+     */
+    private $nationality = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=50, nullable=false)
+     */
+    private $email = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="wer", type="string", length=100, nullable=false)
+     */
+    private $wer = '';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="author_id", type="integer", nullable=false)
+     */
+    private $authorId = '0';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="datum", type="datetime", nullable=false)
+     */
+    private $datum = 'CURRENT_TIMESTAMP';
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nachname
+     *
+     * @param string $nachname
+     *
+     * @return Students
+     */
+    public function setNachname($nachname)
+    {
+        $this->nachname = $nachname;
+
+        return $this;
+    }
+
+    /**
+     * Get nachname
+     *
+     * @return string
+     */
+    public function getNachname()
+    {
+        return $this->nachname;
+    }
+
+    /**
+     * Set vorname
+     *
+     * @param string $vorname
+     *
+     * @return Students
+     */
+    public function setVorname($vorname)
+    {
+        $this->vorname = $vorname;
+
+        return $this;
+    }
+
+    /**
+     * Get vorname
+     *
+     * @return string
+     */
+    public function getVorname()
+    {
+        return $this->vorname;
+    }
+
+    /**
+     * Set gender
+     *
+     * @param string $gender
+     *
+     * @return Students
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Get gender
+     *
+     * @return string
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * Set university1
+     *
+     * @param string $university1
+     *
+     * @return Students
+     */
+    public function setUniversity1($university1)
+    {
+        $this->university1 = $university1;
+
+        return $this;
+    }
+
+    /**
+     * Get university1
+     *
+     * @return string
+     */
+    public function getUniversity1()
+    {
+        return $this->university1;
+    }
+
+    /**
+     * Set matrikel1
+     *
+     * @param string $matrikel1
+     *
+     * @return Students
+     */
+    public function setMatrikel1($matrikel1)
+    {
+        $this->matrikel1 = $matrikel1;
+
+        return $this;
+    }
+
+    /**
+     * Get matrikel1
+     *
+     * @return string
+     */
+    public function getMatrikel1()
+    {
+        return $this->matrikel1;
+    }
+
+    /**
+     * Set university2
+     *
+     * @param string $university2
+     *
+     * @return Students
+     */
+    public function setUniversity2($university2)
+    {
+        $this->university2 = $university2;
+
+        return $this;
+    }
+
+    /**
+     * Get university2
+     *
+     * @return string
+     */
+    public function getUniversity2()
+    {
+        return $this->university2;
+    }
+
+    /**
+     * Set matrikel2
+     *
+     * @param string $matrikel2
+     *
+     * @return Students
+     */
+    public function setMatrikel2($matrikel2)
+    {
+        $this->matrikel2 = $matrikel2;
+
+        return $this;
+    }
+
+    /**
+     * Get matrikel2
+     *
+     * @return string
+     */
+    public function getMatrikel2()
+    {
+        return $this->matrikel2;
+    }
+
+    /**
+     * Set startSemester
+     *
+     * @param string $startSemester
+     *
+     * @return Students
+     */
+    public function setStartSemester($startSemester)
+    {
+        $this->startSemester = $startSemester;
+
+        return $this;
+    }
+
+    /**
+     * Get startSemester
+     *
+     * @return string
+     */
+    public function getStartSemester()
+    {
+        return $this->startSemester;
+    }
+
+    /**
+     * Set studySemester
+     *
+     * @param string $studySemester
+     *
+     * @return Students
+     */
+    public function setStudySemester($studySemester)
+    {
+        $this->studySemester = $studySemester;
+
+        return $this;
+    }
+
+    /**
+     * Get studySemester
+     *
+     * @return string
+     */
+    public function getStudySemester()
+    {
+        return $this->studySemester;
+    }
+
+    /**
+     * Set birthDate
+     *
+     * @param \DateTime $birthDate
+     *
+     * @return Students
+     */
+    public function setBirthDate($birthDate)
+    {
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
+     * Get birthDate
+     *
+     * @return \DateTime
+     */
+    public function getBirthDate()
+    {
+        return $this->birthDate;
+    }
+
+    /**
+     * Set birthPlace
+     *
+     * @param string $birthPlace
+     *
+     * @return Students
+     */
+    public function setBirthPlace($birthPlace)
+    {
+        $this->birthPlace = $birthPlace;
+
+        return $this;
+    }
+
+    /**
+     * Get birthPlace
+     *
+     * @return string
+     */
+    public function getBirthPlace()
+    {
+        return $this->birthPlace;
+    }
+
+    /**
+     * Set nationality
+     *
+     * @param string $nationality
+     *
+     * @return Students
+     */
+    public function setNationality($nationality)
+    {
+        $this->nationality = $nationality;
+
+        return $this;
+    }
+
+    /**
+     * Get nationality
+     *
+     * @return string
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Students
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set wer
+     *
+     * @param string $wer
+     *
+     * @return Students
+     */
+    public function setWer($wer)
+    {
+        $this->wer = $wer;
+
+        return $this;
+    }
+
+    /**
+     * Get wer
+     *
+     * @return string
+     */
+    public function getWer()
+    {
+        return $this->wer;
+    }
+
+    /**
+     * Set authorId
+     *
+     * @param integer $authorId
+     *
+     * @return Students
+     */
+    public function setAuthorId($authorId)
+    {
+        $this->authorId = $authorId;
+
+        return $this;
+    }
+
+    /**
+     * Get authorId
+     *
+     * @return integer
+     */
+    public function getAuthorId()
+    {
+        return $this->authorId;
+    }
+
+    /**
+     * Set datum
+     *
+     * @param \DateTime $datum
+     *
+     * @return Students
+     */
+    public function setDatum($datum)
+    {
+        $this->datum = $datum;
+
+        return $this;
+    }
+
+    /**
+     * Get datum
+     *
+     * @return \DateTime
+     */
+    public function getDatum()
+    {
+        return $this->datum;
+    }
+}

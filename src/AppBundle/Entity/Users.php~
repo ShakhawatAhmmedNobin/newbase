@@ -1,0 +1,190 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Users
+ *
+ * @ORM\Table(name="users", uniqueConstraints={@ORM\UniqueConstraint(name="email", columns={"email"})})
+ * @ORM\Entity
+ */
+class Users
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fullname", type="string", length=50, nullable=false)
+     */
+    private $fullname = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firma", type="string", length=50, nullable=false)
+     */
+    private $firma = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=40, nullable=false)
+     */
+    private $email = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="passwort", type="string", length=32, nullable=false)
+     */
+    private $passwort = '';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", nullable=false)
+     */
+    private $status = 'user';
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set fullname
+     *
+     * @param string $fullname
+     *
+     * @return Users
+     */
+    public function setFullname($fullname)
+    {
+        $this->fullname = $fullname;
+
+        return $this;
+    }
+
+    /**
+     * Get fullname
+     *
+     * @return string
+     */
+    public function getFullname()
+    {
+        return $this->fullname;
+    }
+
+    /**
+     * Set firma
+     *
+     * @param string $firma
+     *
+     * @return Users
+     */
+    public function setFirma($firma)
+    {
+        $this->firma = $firma;
+
+        return $this;
+    }
+
+    /**
+     * Get firma
+     *
+     * @return string
+     */
+    public function getFirma()
+    {
+        return $this->firma;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Users
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set passwort
+     *
+     * @param string $passwort
+     *
+     * @return Users
+     */
+    public function setPasswort($passwort)
+    {
+        $this->passwort = $passwort;
+
+        return $this;
+    }
+
+    /**
+     * Get passwort
+     *
+     * @return string
+     */
+    public function getPasswort()
+    {
+        return $this->passwort;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Users
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+}
